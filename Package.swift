@@ -8,13 +8,13 @@ let package = Package(
     .library(name: "SportsCore", targets: ["SportsCore"]),
   ],
   dependencies: [
-    .package(path: "../WireCore"),
+    .package(url: "https://github.com/Stygian-Tech/wire-core.git", revision: "a37340974f2d26d92faa70bfb048ab0681017b28"),
     .package(url: "https://github.com/apple/swift-crypto.git", from: "3.14.0"),
   ],
   targets: [
     .target(
       name: "SportsCore",
-      dependencies: ["WireCore", .product(name: "Crypto", package: "swift-crypto")],
+      dependencies: [.product(name: "WireCore", package: "wire-core"), .product(name: "Crypto", package: "swift-crypto")],
       swiftSettings: [
         .swiftLanguageMode(.v6),
       ]
